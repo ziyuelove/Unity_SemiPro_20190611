@@ -64,7 +64,7 @@ function NPCTalkPage:Init()
 		table.insert (self.talkbtnList,btn_1);
 	end
 
-	if questmaneger.iscomplatedquest(104) then   --完成任务104后可以赠送
+	if questmaneger.iscomplatedquest(103) then   --完成任务103后可以赠送
 		if NPCTalkData~=nil then
 			local btn_1 = {};
 			btn_1.type = 3;   --赠送

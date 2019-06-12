@@ -126,6 +126,7 @@ end
 --检查一个任务是否已完成
 function questmaneger.iscomplatedquest(id)
 	for key, value in pairs(questmaneger.complatedquestlist) do   
+		print("完成任务:"..value.."   "..id);
 		if value == id then
 			return true;
 		end
