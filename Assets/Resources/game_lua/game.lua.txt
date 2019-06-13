@@ -23,17 +23,16 @@ end
 
 --切换Scene后回调
 function game.OnLevelWasLoaded(level)
-	print("切换Scene成功!!!");
-	if game.gamestate == 0 then
-		--Game.GetGame():OpenUI("UI/LoginPage","LoginPage");
+	print("切换Scene成功!!!"..level[0]);
+	if level[0] == 2 then
 		game.OpenUI("UI/LoginPage");
 		game.gamestate = 1;
 		game.ToChangeRgn = false;
-	elseif game.gamestate == 1 or game.gamestate == 2 then
+	elseif level[0]>2 then
 		game.gamestate = 2;    --已进入游戏场景yi
 		game.sceneinit();
 	else
-		
+		game.gamestate = 0;
 	end
 	return Level
 end
@@ -83,7 +82,9 @@ end
 
 --游戏循环
 function game.Update()
-	gamectrl.update();
+	if game.gamestate == 2 then
+		gamectrl.update();
+	end
 end
 
 function game.CameraFollow()

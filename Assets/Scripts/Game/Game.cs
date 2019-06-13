@@ -12,6 +12,7 @@ using UnityEngine.Tilemaps;
 public class Game : MonoBehaviour
 {
     static Game game;
+    public string strChangeRgn = "";
 
     public static Game GetGame()
     {
@@ -51,10 +52,11 @@ public class Game : MonoBehaviour
 
     public void LoadScene(string strSceneName)
     {
+        strChangeRgn = strSceneName;
         if (ResourceManager.GetInstance().bLoadFromStream)
-            StartCoroutine(ResourceManager.GetInstance().LoadScene(strSceneName));
+            StartCoroutine(ResourceManager.GetInstance().LoadScene("loading"));
         else
-            ChangeRgn(strSceneName);
+            SceneManager.LoadScene("loading");
     }
 
     public void TestScene()
